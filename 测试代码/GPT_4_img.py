@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
 	# 定义模型
 	model = Sequential()
-	model.add(Conv2D(32, (3, 3), activation='relu', padding='same', input_shape=(256, 256, 3)))
+	model.add(Conv2D(32, (3, 3), activation='relu', padding='same', input_shape=(640, 640, 3)))
 	model.add(MaxPooling2D((2, 2), padding='same'))
 	model.add(Conv2D(64, (3, 3), activation='relu', padding='same'))
 	model.add(MaxPooling2D((2, 2), padding='same'))
@@ -36,6 +36,13 @@ if __name__ == '__main__':
 	# 加载图像
 	img = load_img('/Users/judy/Downloads/123_png.png')
 	x = img_to_array(img)
+	# 创建形状为 (636,636,3) 的随机数组
+	# 创建形状为 (640,630,3) 的零数组
+	new_a = np.zeros((640, 640, 3))
+
+	# 将原始数组值复制到新数组中
+	new_a[:636, :636, :] = x
+	x = new_a
 	x = x.reshape((1,) + x.shape)
 	x = x / 255.0
 
