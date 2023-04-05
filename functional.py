@@ -67,4 +67,8 @@ def get_functionals():
             "Prefix":   r"请解释以下代码：" + "\n```\n",
             "Suffix":   "\n```\n",
         },
+        "逐行解释代码": {
+            "Prefix":   r"请解释逐行以下代码,并在每行代码前面加注释：" + "\n```\n",
+            "Suffix":   "\n```\n",
+        },
     }
